@@ -1,35 +1,23 @@
-import { useCallback, useState } from "react";
-import Keyboard from "./components/Keyboard";
-import WordRow from "./components/WordRow";
-import words from './utils/words';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [wordToGuess, setWordToGuess] = useState('');
-
-  const startGame = useCallback(async () => {
-    let word = words[Math.floor(Math.random()*words.length)]
-    setWordToGuess(word);
-    console.log(wordToGuess)
-  })
-
   return (
-    <div className="content">
-      <h1>Wordle</h1>
-      <p>{wordToGuess}</p>
-      <div>
-        <button className='start-btn' onClick={startGame}>Start Game</button>
-      </div>
-      <div className='word-row-container'>
-        <WordRow />
-        <WordRow />
-        <WordRow />
-        <WordRow />
-        <WordRow />
-        <WordRow />
-      </div>
-      <div className='keyboard-container'>
-        <Keyboard />
-      </div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }

@@ -1,87 +1,13 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  margin-bottom: 20px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-}
-
-.word-row-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.word-container {
-  display: flex;
-}
-
-.letter-container {
-  padding: 10px;
-  margin: 5px;
-  font-size: large;
-  background-color: #dcdcdc;
-}
-
-.letter-hidden {
-  visibility: hidden;
-  cursor: pointer;
-}
-
-.letter-visible {
-  visibility: visible;
-}
-
-.keyboard-container {
-  margin-top: 70px;
-}
-
-.keyboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.keyboard-first-row {
-  display: flex;
-}
-
-.keyboard-second-row {
-  display: flex;
-}
-
-.keyboard-third-row {
-  display: flex;
-}
-
-.key-unclicked {
-  padding: 20px;
-  margin: 5px;
-  font-size: large;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-}
-
-.key {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.key-selected {
-  padding: 20px;
-  margin: 5px;
-  font-size: large;
-  background-color: rosybrown;
-  color: white;
-  cursor: pointer;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
