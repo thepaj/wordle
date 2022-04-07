@@ -1,41 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Key from './Key';
 
-function Keyboard() {
+function Keyboard(props) {
+    const letters = props.usedLetters;
+
+    useEffect(() => {
+        //console.log(`letters: ${letters}`)
+    }, [letters])
 
     return(
         <div className='keyboard'>
             <div className='keyboard-first-row'>
-                <Key letter='Q' />
-                <Key letter='W' />
-                <Key letter='E' />
-                <Key letter='R' />
-                <Key letter='T' />
-                <Key letter='Y' />
-                <Key letter='U' />
-                <Key letter='I' />
-                <Key letter='O' />
-                <Key letter='P' />
+                <Key letter='Q' letters={letters}/>
+                <Key letter='W' letters={letters} />
+                <Key letter='E' letters={letters} />
+                <Key letter='R' letters={letters} />
+                <Key letter='T' letters={letters} />
+                <Key letter='Y' letters={letters} />
+                <Key letter='U' letters={letters} />
+                <Key letter='I' letters={letters} />
+                <Key letter='O' letters={letters} />
+                <Key letter='P' letters={letters} />
             </div>
             <div className='keyboard-second-row'>
-                <Key letter='A' />
-                <Key letter='S' />
-                <Key letter='D' />
-                <Key letter='F' />
-                <Key letter='G' />
-                <Key letter='H' />
-                <Key letter='J' />
-                <Key letter='K' />
-                <Key letter='L' />
+                <Key letter='A' letters={letters} />
+                <Key letter='S' letters={letters} />
+                <Key letter='D' letters={letters} />
+                <Key letter='F' letters={letters} />
+                <Key letter='G' letters={letters} />
+                <Key letter='H' letters={letters} />
+                <Key letter='J' letters={letters} />
+                <Key letter='K' letters={letters} />
+                <Key letter='L' letters={letters} />
             </div>
             <div className='keyboard-third-row'>
-                <Key letter='Z' />
-                <Key letter='X' />
-                <Key letter='C' />
-                <Key letter='V' />
-                <Key letter='B' />
-                <Key letter='N' />
-                <Key letter='M' />
+                <Key letter='Z' letters={letters} />
+                <Key letter='X' letters={letters} />
+                <Key letter='C' letters={letters} />
+                <Key letter='V' letters={letters} />
+                <Key letter='B' letters={letters} />
+                <Key letter='N' letters={letters} />
+                <Key letter='M' letters={letters} />
             </div>
         </div>
     )
