@@ -31,13 +31,13 @@ h1 {
   background-color: #dcdcdc;
 }
 
-.letter-hidden {
-  visibility: hidden;
+.letter {
   cursor: pointer;
-}
-
-.letter-visible {
-  visibility: visible;
+  padding: 20px;
+  margin: 5px;
+  font-size: large;
+  color: black;
+  cursor: pointer;
 }
 
 .keyboard-container {

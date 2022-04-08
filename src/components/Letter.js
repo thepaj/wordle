@@ -15,10 +15,8 @@ function Letter(props) {
 
     return(
         <div className='letter-container'>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={handleChange} value={letter} />
-                </form>
+            <div className='letter'>
+                {props.letter}
             </div>
         </div>
     )

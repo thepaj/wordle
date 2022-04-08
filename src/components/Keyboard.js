@@ -1,47 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Key from './Key';
 
 function Keyboard(props) {
-    const letters = props.usedLetters;
+    const [letters, setLetters] = useState('');
 
-    useEffect(() => {
-        //console.log(`letters: ${letters}`)
-    }, [letters])
+    // gets selected letters from the child component
+    const getLetters = (ltrs) => {
+        setLetters(letters.concat(ltrs))
+        if(letters.length === 5) {
+            props.callback(letters);
+            setLetters('')
+        }
+    }
+
+    const handleSubmit = () => {
+        getLetters();
+    }
 
     return(
         <div className='keyboard'>
             <div className='keyboard-first-row'>
-                <Key letter='Q' letters={letters}/>
-                <Key letter='W' letters={letters} />
-                <Key letter='E' letters={letters} />
-                <Key letter='R' letters={letters} />
-                <Key letter='T' letters={letters} />
-                <Key letter='Y' letters={letters} />
-                <Key letter='U' letters={letters} />
-                <Key letter='I' letters={letters} />
-                <Key letter='O' letters={letters} />
-                <Key letter='P' letters={letters} />
+                <Key letter='Q' letters={letters} callback={getLetters}/>
+                <Key letter='W' letters={letters} callback={getLetters} />
+                <Key letter='E' letters={letters} callback={getLetters} />
+                <Key letter='R' letters={letters} callback={getLetters} />
+                <Key letter='T' letters={letters} callback={getLetters} />
+                <Key letter='Y' letters={letters} callback={getLetters} />
+                <Key letter='U' letters={letters} callback={getLetters} />
+                <Key letter='I' letters={letters} callback={getLetters} />
+                <Key letter='O' letters={letters} callback={getLetters} />
+                <Key letter='P' letters={letters} callback={getLetters} />
             </div>
             <div className='keyboard-second-row'>
-                <Key letter='A' letters={letters} />
-                <Key letter='S' letters={letters} />
-                <Key letter='D' letters={letters} />
-                <Key letter='F' letters={letters} />
-                <Key letter='G' letters={letters} />
-                <Key letter='H' letters={letters} />
-                <Key letter='J' letters={letters} />
-                <Key letter='K' letters={letters} />
-                <Key letter='L' letters={letters} />
+                <Key letter='A' letters={letters} callback={getLetters} />
+                <Key letter='S' letters={letters} callback={getLetters} />
+                <Key letter='D' letters={letters} callback={getLetters} />
+                <Key letter='F' letters={letters} callback={getLetters} />
+                <Key letter='G' letters={letters} callback={getLetters} />
+                <Key letter='H' letters={letters} callback={getLetters} />
+                <Key letter='J' letters={letters} callback={getLetters} />
+                <Key letter='K' letters={letters} callback={getLetters} />
+                <Key letter='L' letters={letters} callback={getLetters} />
             </div>
             <div className='keyboard-third-row'>
-                <Key letter='Z' letters={letters} />
-                <Key letter='X' letters={letters} />
-                <Key letter='C' letters={letters} />
-                <Key letter='V' letters={letters} />
-                <Key letter='B' letters={letters} />
-                <Key letter='N' letters={letters} />
-                <Key letter='M' letters={letters} />
+                <Key letter='Z' letters={letters} callback={getLetters} />
+                <Key letter='X' letters={letters} callback={getLetters} />
+                <Key letter='C' letters={letters} callback={getLetters} />
+                <Key letter='V' letters={letters} callback={getLetters} />
+                <Key letter='B' letters={letters} callback={getLetters} />
+                <Key letter='N' letters={letters} callback={getLetters} />
+                <Key letter='M' letters={letters} callback={getLetters} />
             </div>
+            <button type='submit' onClick={handleSubmit}>Submit Word</button>
         </div>
     )
 }
