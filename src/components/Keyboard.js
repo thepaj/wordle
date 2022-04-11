@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import Key from './Key';
+import words from '../utils/words';
+import { unmountComponentAtNode } from 'react-dom';
 
 function Keyboard(props) {
     const [letters, setLetters] = useState('');
 
-    // gets selected letters from the child component
+    const wordToGuess = props.wordToGuess;
+
+    // get selected letters from the child component
     const getLetters = (ltrs) => {
         setLetters(letters.concat(ltrs))
         if(letters.length === 5) {
@@ -13,8 +17,29 @@ function Keyboard(props) {
         }
     }
 
+    // compare to wordToGuess
+    const compareToWord = () => {
+        if(letters.toLowerCase() === wordToGuess) {
+            alert('winner')
+        } else {
+            compareToApi();
+        }
+    }
+
+    // compare word with the api
+    const compareToApi = () => {
+        console.log(wordToGuess)
+        for(let i = 0; i < words.length; i++) {
+            if(letters.toLowerCase() === words[i]) {
+                alert('exist')
+            }
+        }
+    }
+
+    // handle submit
     const handleSubmit = () => {
         getLetters();
+        compareToWord();
     }
 
     return(

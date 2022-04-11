@@ -10,16 +10,12 @@ function App() {
   function startGame() {
       let word = words[Math.floor(Math.random()*words.length)];
       setWordToGuess(word);
-      let letterArray = [];
-      for(let i = 0; i < word.length; i++) {
-        letterArray.push(wordToGuess.charAt(i))
-      }
-      console.log(letterArray)
   } 
 
   return (
     <div className="content">
       <h1>Wordle</h1>
+      {wordToGuess}
       <div>
         <button className='start-btn' onClick={startGame}>Start Game</button>
       </div>

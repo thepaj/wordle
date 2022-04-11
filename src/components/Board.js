@@ -6,6 +6,8 @@ import { useState } from "react";
 function Board(props) {
     const [word, setWord] = useState('');
 
+    const wordToGuess = props.wordToGuess;
+
     // const wordToGuess = props.wordToGuess;
 
     // const getWords = (wrd) => {
@@ -21,12 +23,12 @@ function Board(props) {
     return(
         <div className='board-container'>
             <div className='word-row-container'>
-                <WordRow word={word}/>
-                <WordRow word={word}/>
-                <WordRow word={word}/>
-                <WordRow word={word}/>
-                <WordRow word={word}/>
-                <WordRow word={word}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} wordToGuess={wordToGuess}/>
             </div>
             <div className='keyboard-container'>
                 <Keyboard callback={getWord}/>
