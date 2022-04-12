@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Key from './Key';
 import words from '../utils/words';
-import { unmountComponentAtNode } from 'react-dom';
 
 function Keyboard(props) {
     const [letters, setLetters] = useState('');
 
     const wordToGuess = props.wordToGuess;
+    const gameStarted = props.gameStarted;
+
+    useEffect(() => {
+        console.log(gameStarted)
+    })
 
     // get selected letters from the child component
     const getLetters = (ltrs) => {
@@ -45,36 +49,36 @@ function Keyboard(props) {
     return(
         <div className='keyboard'>
             <div className='keyboard-first-row'>
-                <Key letter='Q' letters={letters} callback={getLetters}/>
-                <Key letter='W' letters={letters} callback={getLetters} />
-                <Key letter='E' letters={letters} callback={getLetters} />
-                <Key letter='R' letters={letters} callback={getLetters} />
-                <Key letter='T' letters={letters} callback={getLetters} />
-                <Key letter='Y' letters={letters} callback={getLetters} />
-                <Key letter='U' letters={letters} callback={getLetters} />
-                <Key letter='I' letters={letters} callback={getLetters} />
-                <Key letter='O' letters={letters} callback={getLetters} />
-                <Key letter='P' letters={letters} callback={getLetters} />
+                <Key letter='Q' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='W' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='E' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='R' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='T' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='Y' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='U' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='I' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='O' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='P' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
             </div>
             <div className='keyboard-second-row'>
-                <Key letter='A' letters={letters} callback={getLetters} />
-                <Key letter='S' letters={letters} callback={getLetters} />
-                <Key letter='D' letters={letters} callback={getLetters} />
-                <Key letter='F' letters={letters} callback={getLetters} />
-                <Key letter='G' letters={letters} callback={getLetters} />
-                <Key letter='H' letters={letters} callback={getLetters} />
-                <Key letter='J' letters={letters} callback={getLetters} />
-                <Key letter='K' letters={letters} callback={getLetters} />
-                <Key letter='L' letters={letters} callback={getLetters} />
+                <Key letter='A' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='S' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='D' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='F' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='G' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='H' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='J' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='K' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='L' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
             </div>
             <div className='keyboard-third-row'>
-                <Key letter='Z' letters={letters} callback={getLetters} />
-                <Key letter='X' letters={letters} callback={getLetters} />
-                <Key letter='C' letters={letters} callback={getLetters} />
-                <Key letter='V' letters={letters} callback={getLetters} />
-                <Key letter='B' letters={letters} callback={getLetters} />
-                <Key letter='N' letters={letters} callback={getLetters} />
-                <Key letter='M' letters={letters} callback={getLetters} />
+                <Key letter='Z' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='X' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='C' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='V' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='B' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='N' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                <Key letter='M' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
             </div>
             <button type='submit' onClick={handleSubmit}>Submit Word</button>
         </div>

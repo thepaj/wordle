@@ -1,18 +1,13 @@
 import WordRow from "./WordRow";
 import Keyboard from "./Keyboard";
-import words from '../utils/words';
 import { useState } from "react";
 
 function Board(props) {
     const [word, setWord] = useState('');
 
+    // import props
     const wordToGuess = props.wordToGuess;
-
-    // const wordToGuess = props.wordToGuess;
-
-    // const getWords = (wrd) => {
-    //     setWord(wrd)
-    // }
+    const gameStarted = props.gameStarted;
 
     // gets a word from the keyboard child component
     const getWord = (wrd) => {
@@ -31,7 +26,7 @@ function Board(props) {
                 <WordRow word={word} wordToGuess={wordToGuess}/>
             </div>
             <div className='keyboard-container'>
-                <Keyboard callback={getWord}/>
+                <Keyboard callback={getWord} gameStarted={gameStarted}/>
             </div>
         </div>
     )

@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Board from "./components/Board";
 import words from './utils/words';
 
 function App() {
-  const [started, setStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
   const [wordToGuess, setWordToGuess] = useState('');
-  const [splitWord, setSplitWord] = useState([]);
 
   function startGame() {
       let word = words[Math.floor(Math.random()*words.length)];
       setWordToGuess(word);
+      setGameStarted(true);
   } 
 
   return (
@@ -20,7 +20,7 @@ function App() {
         <button className='start-btn' onClick={startGame}>Start Game</button>
       </div>
       <div>
-        <Board wordToGuess={wordToGuess}/>
+        <Board wordToGuess={wordToGuess} gameStarted={gameStarted}/>
       </div>
     </div>
   );
