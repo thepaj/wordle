@@ -18,15 +18,15 @@ function Board(props) {
     return(
         <div className='board-container'>
             <div className='word-row-container'>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
-                <WordRow word={word} wordToGuess={wordToGuess}/>
+                <WordRow word={word} />
+                <WordRow word={word} />
+                <WordRow word={word} />
+                <WordRow word={word} />
+                <WordRow word={word} />
+                <WordRow word={word} />
             </div>
             <div className='keyboard-container'>
-                <Keyboard callback={getWord} gameStarted={gameStarted}/>
+                <Keyboard callback={getWord} gameStarted={gameStarted} wordToGuess={wordToGuess}/>
             </div>
         </div>
     )

@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Key from './Key';
 import words from '../utils/words';
 
 function Keyboard(props) {
     const [letters, setLetters] = useState('');
 
+    // get props
     const wordToGuess = props.wordToGuess;
     const gameStarted = props.gameStarted;
 
-    useEffect(() => {
-        console.log(gameStarted)
-    })
+    const alphabet = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+    const abc1 = alphabet.slice(0, 10);
+    const abc2 = alphabet.slice(10, 19);
+    const abc3 = alphabet.slice(19)
 
     // get selected letters from the child component
     const getLetters = (ltrs) => {
@@ -49,36 +51,19 @@ function Keyboard(props) {
     return(
         <div className='keyboard'>
             <div className='keyboard-first-row'>
-                <Key letter='Q' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='W' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='E' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='R' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='T' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='Y' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='U' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='I' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='O' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='P' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                {abc1.map((letter, i) => {
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                })}
             </div>
             <div className='keyboard-second-row'>
-                <Key letter='A' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='S' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='D' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='F' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='G' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='H' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='J' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='K' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='L' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                {abc2.map((letter, i) => {
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                })}
             </div>
             <div className='keyboard-third-row'>
-                <Key letter='Z' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='X' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='C' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='V' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='B' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='N' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
-                <Key letter='M' letters={letters} callback={getLetters} gameStarted={gameStarted}/>
+                {abc3.map((letter, i) => {
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                })}
             </div>
             <button type='submit' onClick={handleSubmit}>Submit Word</button>
         </div>
