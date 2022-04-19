@@ -4,6 +4,7 @@ import words from '../utils/words';
 
 function Keyboard(props) {
     const [letters, setLetters] = useState('');
+    const [includedLetters, setIncludedLetters] = useState('');
 
     // get props
     const wordToGuess = props.wordToGuess;
@@ -12,14 +13,14 @@ function Keyboard(props) {
     const alphabet = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
     const abc1 = alphabet.slice(0, 10);
     const abc2 = alphabet.slice(10, 19);
-    const abc3 = alphabet.slice(19)
+    const abc3 = alphabet.slice(19);
 
     // get selected letters from the child component
     const getLetters = (ltrs) => {
         setLetters(letters.concat(ltrs))
         if(letters.length === 5) {
             props.callback(letters);
-            setLetters('')
+            setLetters('');
         }
     }
 
@@ -37,9 +38,21 @@ function Keyboard(props) {
         console.log(wordToGuess)
         for(let i = 0; i < words.length; i++) {
             if(letters.toLowerCase() === words[i]) {
-                alert('exist')
+                compareLetters();
             }
         }
+    }
+
+    // compare letters in the word
+    const compareLetters = () => {
+            console.log('compare letters')
+            for(let i = 0; i < letters.length; i++) {
+                console.log(letters[i])
+                if(wordToGuess.includes(letters[i])) {
+                    setIncludedLetters(includedLetters.concat(letters[i]))
+                    console.log(includedLetters)
+                }
+            }
     }
 
     // handle submit
@@ -50,6 +63,7 @@ function Keyboard(props) {
 
     return(
         <div className='keyboard'>
+            {includedLetters}
             <div className='keyboard-first-row'>
                 {abc1.map((letter, i) => {
                     return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
