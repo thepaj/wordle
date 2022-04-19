@@ -20,7 +20,7 @@ function Keyboard(props) {
         setLetters(letters.concat(ltrs))
         if(letters.length === 5) {
             props.callback(letters);
-            setLetters('');
+            //setLetters('');
         }
     }
 
@@ -47,10 +47,8 @@ function Keyboard(props) {
     const compareLetters = () => {
             console.log('compare letters')
             for(let i = 0; i < letters.length; i++) {
-                console.log(letters[i])
-                if(wordToGuess.includes(letters[i])) {
+                if(wordToGuess.includes(letters[i].toLowerCase())) {
                     setIncludedLetters(includedLetters.concat(letters[i]))
-                    console.log(includedLetters)
                 }
             }
     }
@@ -66,20 +64,20 @@ function Keyboard(props) {
             {includedLetters}
             <div className='keyboard-first-row'>
                 {abc1.map((letter, i) => {
-                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} included={includedLetters}/>
                 })}
             </div>
             <div className='keyboard-second-row'>
                 {abc2.map((letter, i) => {
-                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} included={includedLetters}/>
                 })}
             </div>
             <div className='keyboard-third-row'>
                 {abc3.map((letter, i) => {
-                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} />
+                    return <Key key={i} letter={letter.toUpperCase()} letters={letters} callback={getLetters} gameStarted={gameStarted} included={includedLetters}/>
                 })}
             </div>
-            <button type='submit' onClick={handleSubmit}>Submit Word</button>
+            <button type='submit' className="submit-btn" onClick={handleSubmit}>Submit Word</button>
         </div>
     )
 }
