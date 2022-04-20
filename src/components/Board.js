@@ -17,13 +17,14 @@ function Board(props) {
 
     return(
         <div className='board-container'>
+            {word}
             <div className='word-row-container'>
-                <WordRow word={word} />
-                <WordRow word={word} />
-                <WordRow word={word} />
-                <WordRow word={word} />
-                <WordRow word={word} />
-                <WordRow word={word} />
+                <WordRow word={word.slice(0, 5)} />
+                <WordRow word={word.slice(5, 10)} />
+                <WordRow word={word.slice(10, 15)} />
+                <WordRow word={word.slice(15, 20)} />
+                <WordRow word={word.slice(20, 25)} />
+                <WordRow word={word.slice(25, 30)} />
             </div>
             <div className='keyboard-container'>
                 <Keyboard callback={getWord} gameStarted={gameStarted} wordToGuess={wordToGuess}/>
