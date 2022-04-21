@@ -18,7 +18,9 @@ function Keyboard(props) {
     // get selected letters from the child component
     const getLetters = (ltrs) => {
         setLetters(letters.concat(ltrs))
-        props.callback(letters);
+        if(letters.length % 5 === 0) {
+            props.callback(ltrs);
+        }
     }
 
     // compare to wordToGuess
